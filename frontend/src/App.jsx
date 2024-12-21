@@ -13,6 +13,15 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import DashboardPage from "./pages/DashboardPage";
 import Quiz from "./components/Quiz";
 import QuizContainer from "./components/QuizContainer";
+import QuizzesPage from "./pages/QuizzesPage";
+import QuizPage from "./pages/QuizPage";
+import QuizResults from "./pages/QuizResults";
+import axios from "axios";
+
+
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;  // Use the Vite environment variable
+axios.defaults.withCredentials = true; 
+
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, user } = useAuthStore();
@@ -90,14 +99,14 @@ function App() {
               </RedirectAuthenticatedUser>
             }
           />
-          <Route
-            path="/login"
-            element={
-              <RedirectAuthenticatedUser>
-                <LoginPage />
-              </RedirectAuthenticatedUser>
-            }
-          />
+            <Route
+              path="/login"
+              element={
+                <RedirectAuthenticatedUser>
+                  <LoginPage />
+                </RedirectAuthenticatedUser>
+              }
+            />
           <Route path="/verify-email" element={<EmailVerficationPage />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
           <Route
@@ -118,8 +127,11 @@ function App() {
           />
           {/* catch all routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="/quiz" element={<Quiz/>} />
-          <Route path="/quiz-container" element={<QuizContainer/>} />
+          <Route path="/quiz" element={<QuizPage/>} />
+          <Route path="/quiz-results" element={<QuizResults/>} />
+          {/* <Route path="/quiz" element={<Quiz/>} /> */}
+          {/* <Route path="/quiz-container" element={<QuizContainer/>} /> */}
+          <Route path="/quizzes" element={<QuizzesPage/>} />
         </Routes>
         <Toaster />
       {/* </div> */}

@@ -12,8 +12,8 @@ router.post('/add', addQuestion);
 // GET: Retrieve all questions
 router.get('/getall', getAllQuestions);
 
-router.get('/category/:categoryId', getQuestionsByCategory);
-router.get('/difficulty/:difficultyLevel', getQuestionsByDifficulty);
-router.get('/category/:categoryId/difficulty/:difficultyLevel', getQuestionsByCategoryAndDifficulty);
+// router.get('/category/:categoryId', getQuestionsByCategory);
+// router.get('/difficulty/:difficultyLevel', getQuestionsByDifficulty);
+// router.get('/category/:categoryId/difficulty/:difficultyLevel', getQuestionsByCategoryAndDifficulty);
 
 export default router;

@@ -63,6 +63,8 @@ const EmailVerficationPage = () => {
 		}
 	}, [code]);
   return (
+	<div className="min-h-screen bg-gradient-to-br from-gray-900 via-orange-900 to-orange-900 flex items-center justify-center relative overflow-hidden">
+
     <div className='max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden'>
     <motion.div
         initial={{ opacity: 0, y: -50 }}
@@ -70,7 +72,7 @@ const EmailVerficationPage = () => {
         transition={{ duration: 0.5 }}
         className='bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-2xl p-8 w-full max-w-md'
     >
-        <h2 className='text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text'>
+        <h2 className='text-3xl font-bold mb-6 text-center bg-gradient-to-r from-orange-400 to-orange-500 text-transparent bg-clip-text'>
             Verify Your Email
         </h2>
         <p className='text-center text-gray-300 mb-6'>Enter the 6-digit code sent to your email address.</p>
@@ -102,6 +104,7 @@ const EmailVerficationPage = () => {
             </motion.button>
         </form>
     </motion.div>
+</div>
 </div>
   )
 }

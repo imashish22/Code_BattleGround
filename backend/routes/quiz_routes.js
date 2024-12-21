@@ -1,11 +1,13 @@
 // backend/routes/quizRoutes.js
 
 import express from 'express';
-import { getQuizQuestions } from '../controllers/quiz_controller.js';
+import { checkAnswers, getQuestionsByCategoryAndDifficulty, getQuizQuestions } from '../controllers/quiz_controller.js';
 
 const router = express.Router();
 
 // Route to get quiz questions
-router.get('/:category/:difficulty', getQuizQuestions);
+router.get('/category/:categoryId/difficulty/:difficultyLevel', getQuestionsByCategoryAndDifficulty);
+
+router.post('/check-answers', checkAnswers);
 
 export default router;

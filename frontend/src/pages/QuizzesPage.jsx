@@ -1,59 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/authStore";  
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import Footer from "../pages/Footer";
-import LoadingSpinner from "./auth/LoadingSpinner";
+import axios from 'axios'; // Import axios for API requests
+import { useAuthStore } from "../store/authStore";
+import LoadingSpinner from "../components/auth/LoadingSpinner";
 
-const Quiz = () => {
+const QuizzesPage = () => {
   const { isLoading } = useAuthStore(); // Get the loading state from useAuthStore
   const [selectedCategory, setSelectedCategory] = useState(null); // Track selected category
   const [selectedDifficulty, setSelectedDifficulty] = useState(null); // Track selected difficulty
+  const [categories, setCategories] = useState([]); // Track fetched categories
   const navigate = useNavigate();
 
-  const categories = [
-    {
-      name: "SQL",
-      value: "sql",
-      color: "bg-blue-500",
-      image:
-        "https://www.bing.com/images/search?view=detailV2&ccid=knt4jZIR&id=60C3194FD231D955A85E59FD636E8A199E1B960B&thid=OIP.knt4jZIR6HmZVpzxlgWnswHaHa&mediaurl=https%3a%2f%2fwww.freeiconspng.com%2fuploads%2fsql-database-icon-png-17.png&exph=720&expw=720&q=SQL+png&simid=608037344194871684&FORM=IRPRST&ck=ECEBD2CA80556F76C6012DC42B336641&selectedIndex=0&itb=1",
-    },
-    {
-      name: "Docker",
-      value: "docker",
-      color: "bg-yellow-500",
-      image:
-        "https://logos-world.net/wp-content/uploads/2021/02/Docker-Symbol.png",
-    },
-    {
-      name: "Linux",
-      value: "linux",
-      color: "bg-green-500",
-      image:
-        "https://www.pngall.com/wp-content/uploads/5/Linux-Logo-PNG-Download-Image.png",
-    },
-    {
-      name: "DEVOPS",
-      value: "devops",
-      color: "bg-red-500",
-      image:
-        "https://www.itrsgroup.com/sites/default/files/inline-images/DevOps%20lifecycle%20graphic_1.png",
-    },
-    {
-      name: "Bash",
-      value: "bash",
-      color: "bg-red-500",
-      image:
-        "https://cdn4.iconfinder.com/data/icons/proglyphs-computers-and-development/512/Terminal-512.png",
-    },
-    {
-      name: "CMS",
-      value: "cms",
-      color: "bg-red-500",
-      image: "https://cdn-icons-png.flaticon.com/512/12470/12470102.png"
-    },
-  ];
+  // Fetch categories from the database
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('/api/quiz/getall'); 
+        setCategories(response.data); 
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   const difficulties = [
     { name: "Easy", value: "easy", color: "bg-teal-500" },
@@ -62,15 +34,16 @@ const Quiz = () => {
   ];
 
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category); 
+    setSelectedDifficulty(null); 
   };
 
   const handleDifficultySelect = (difficulty) => {
-    setSelectedDifficulty(difficulty);
+    setSelectedDifficulty(difficulty); 
     if (selectedCategory) {
-      navigate("/quiz-container", {
+      navigate("/quiz", {
         state: {
-          category: selectedCategory.value,
+          category: selectedCategory._id, 
           difficulty: difficulty.value,
         },
       });
@@ -87,31 +60,30 @@ const Quiz = () => {
             Select a Quiz Category
           </h1>
 
-          {isLoading ? ( // Show loading spinner when isLoading is true
+          {isLoading ? ( 
             <LoadingSpinner />
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-center">
                 {categories.map((category) => (
                   <div
-                    key={category.value}
+                    key={category._id} 
                     onClick={() => handleCategorySelect(category)}
-                    className={`p-6 rounded-lg shadow-md cursor-pointer ${category.color} text-white text-center transition-transform transform hover:scale-105 ${
-                      selectedCategory?.value === category.value
+                    className={`p-6 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 ${
+                      selectedCategory?.name === category.name
                         ? "ring-4 ring-offset-2 ring-indigo-400"
                         : ""
                     }`}
+                    style={{
+                      height: "200px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: `linear-gradient(135deg, #F6AD55 0%, rgba(255, 165, 0, 0.8) 100%)`, // Apply orange gradient
+                    }}
                   >
-                    {/* Image Section */}
-                    <div className="w-full h-40">
-                      <img
-                        src={category.image}
-                        alt={category.name}
-                        className="w-full h-full object-contain rounded-md"
-                      />
-                    </div>
                     {/* Category Name */}
-                    <span className="text-2xl font-semibold mt-4">
+                    <span className="text-2xl font-semibold text-white">
                       {category.name}
                     </span>
                   </div>
@@ -151,4 +123,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizzesPage;
