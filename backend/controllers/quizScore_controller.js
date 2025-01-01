@@ -1,13 +1,42 @@
-import QuizResult from "../models/quizScoreModel.js"
+// import QuizResult from "../models/quizScoreModel.js"
+
+// // Create a new quiz result
+// export const createQuizResult = async (req, res) => {
+//   try {
+//     const { userId, username, category, difficulty, score } = req.body;
+
+//     if (!userId || !username || !category || !difficulty || score === undefined) {
+//       return res.status(400).json({ message: "All fields are required" });
+//     }
+
+//     const newResult = new QuizResult({
+//       userId,
+//       username,
+//       category,
+//       difficulty,
+//       score,
+//     });
+
+//     await newResult.save();
+//     res.status(201).json({ message: "Result saved successfully", data: newResult });
+//   } catch (error) {
+//     console.error("Error saving quiz result:", error);
+//     res.status(500).json({ message: "Error saving quiz result", error });
+//   }
+// };
+import QuizResult from "../models/quizScoreModel.js";
 
 // Create a new quiz result
 export const createQuizResult = async (req, res) => {
   try {
     const { userId, username, category, difficulty, score } = req.body;
 
-    if (!userId || !username || !category || !difficulty || score === undefined) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
+    // Validate required fields
+    if (!userId) return res.status(400).json({ message: "User ID is required" });
+    if (!username) return res.status(400).json({ message: "Username is required" });
+    if (!category) return res.status(400).json({ message: "Category is required" });
+    if (!difficulty) return res.status(400).json({ message: "Difficulty is required" });
+    if (score === undefined) return res.status(400).json({ message: "Score is required" });
 
     const newResult = new QuizResult({
       userId,

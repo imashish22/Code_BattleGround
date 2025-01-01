@@ -26,7 +26,7 @@ const DashboardPage = () => {
             }
 
             try {
-                const response = await axios.get(`http://localhost:5000/api/quiz-results/${user._id}`, {
+                const response = await axios.get(`http://localhost:5000/api/quiz/result/${user._id}`, {
                     withCredentials: true,
                 });
                 console.log("Fetched quizzes data:", response.data);

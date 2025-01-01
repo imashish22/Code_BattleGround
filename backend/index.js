@@ -7,6 +7,7 @@
     import quizRoutes from "./routes/quiz_category.js";
     import quizRoutesQuestion from "./routes/quiz_routes.js";
     import quizscoreRoutes from "./routes/quizScore_route.js";
+    import leaderboardRoutes from "./routes/leaderboard.js";
     import axios from "axios";
 
     const app = express();
@@ -26,7 +27,8 @@
     app.use("/api/quiz-question",quizRoutesQuestion)
     app.use("/api/auth",authRoutes)
     app.use("/api/quiz",quizRoutes)
-    app.use("/api/quiz-results",quizscoreRoutes)
+    app.use("/api/quiz/result",quizscoreRoutes)
+    app.use('/api/leaderboard', leaderboardRoutes);
 
 
 

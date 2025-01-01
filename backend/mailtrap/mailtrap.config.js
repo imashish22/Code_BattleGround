@@ -8,7 +8,12 @@ export const mailtrapClient = new MailtrapClient({
 	token: process.env.MAILTRAP_TOKEN,
 });
 
+// export const sender = {
+// 	email: "mailtrap@demomailtrap.com",
+// 	name: "Code_BattleGround",
+// };
+
 export const sender = {
-	email: "mailtrap@demomailtrap.com",
-	name: "Code_BattleGround",
+    email: "no-reply@code-battleground.site", // Updated to use your verified domain
+    name: "Code_BattleGround",
 };

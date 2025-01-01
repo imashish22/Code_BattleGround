@@ -43,7 +43,9 @@ const QuizzesPage = () => {
     if (selectedCategory) {
       navigate("/quiz", {
         state: {
-          category: selectedCategory._id, 
+          // category: selectedCategory._id, 
+          // categoryName: selectedCategory.name,
+          category: { id: selectedCategory._id, name: selectedCategory.name },
           difficulty: difficulty.value,
         },
       });
