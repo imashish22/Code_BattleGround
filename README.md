@@ -40,15 +40,15 @@ __Email Verification__: Mailtrap for managing email notifications
 <br>
 
 ## 🏆 __How to Use Code BattleGround__
-Sign Up & Login: Create an account or log in if you already have one.  
+__Sign Up & Login__: Create an account or log in if you already have one.  
 
-Choose a Category: Select a coding category or quiz topic and begin solving problems.  
+__Choose a Category__: Select a coding category or quiz topic and begin solving problems.  
 
-Start a Contest: Participate in timed contests and test your coding skills under pressure.  
+__Start a Contest__: Participate in timed contests and test your coding skills under pressure.  
 
-View Results: Check your scores and compare them on the leaderboard.  
+__View Results__: Check your scores and compare them on the leaderboard.  
 
-Admin Panel: If you're an admin, manage quiz categories, create quizzes, and monitor the platform.   
+__Admin Panel__: If you're an admin, manage quiz categories, create quizzes, and monitor the platform.   
 
 <br>
 
