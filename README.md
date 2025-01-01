@@ -25,30 +25,31 @@ Code BattleGround is a **Competitive Coding Platform** built using the **MERN st
 
 ## 🚀 __Tech Stack__  
 
-__Frontend__: React, Tailwind CSS  
+• __Frontend__: React, Tailwind CSS  
 
-__Backend__: Node.js, Express  
+• __Backend__: Node.js, Express  
 
-__Database__: MongoDB  
+• __Database__: MongoDB  
 
-__Authentication__: JWT (JSON Web Tokens) for user authentication  
+• __Authentication__: JWT (JSON Web Tokens) for user authentication  
 
-__Real-Time Code Execution__: Judge0 API for code execution in multiple languages  
+• __Real-Time Code Execution__: Judge0 API for code execution in multiple languages  
 
-__Email Verification__: Mailtrap for managing email notifications  
+• __Email Verification__: Mailtrap for managing email notifications  
 
 <br>
 
-## 🏆 __How to Use Code BattleGround__
-__Sign Up & Login__: Create an account or log in if you already have one.  
+## 🏆 __How to Use Code BattleGround__  
 
-__Choose a Category__: Select a coding category or quiz topic and begin solving problems.  
+• __Sign Up & Login__: Create an account or log in if you already have one.  
 
-__Start a Contest__: Participate in timed contests and test your coding skills under pressure.  
+• __Choose a Category__: Select a coding category or quiz topic and begin solving problems.  
 
-__View Results__: Check your scores and compare them on the leaderboard.  
+• __Start a Contest__: Participate in timed contests and test your coding skills under pressure.  
 
-__Admin Panel__: If you're an admin, manage quiz categories, create quizzes, and monitor the platform.   
+• __View Results__: Check your scores and compare them on the leaderboard.  
+
+• __Admin Panel__: If you're an admin, manage quiz categories, create quizzes, and monitor the platform.   
 
 <br>
 
@@ -69,9 +70,9 @@ __Admin Panel__: If you're an admin, manage quiz categories, create quizzes, and
 
 ## 🔗 __Links__  
 
-__Live Demo__: Visit Code BattleGround  
+• __Live Demo__: Visit Code BattleGround  
 
-__GitHub Repository__: Code BattleGround Repository  
+• __GitHub Repository__: Code BattleGround Repository  
 
 <br>
 
