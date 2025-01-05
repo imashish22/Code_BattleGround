@@ -322,7 +322,7 @@ const QuizPage = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/quiz-question/category/${category.id}/difficulty/${difficulty}`
+          `api/quiz-question/category/${category.id}/difficulty/${difficulty}`
         );
         console.log(category)
         setQuestions(response.data);
@@ -366,7 +366,7 @@ const QuizPage = () => {
 
     try {
       // Save quiz result to the database
-      await axios.post("http://localhost:5000/api/quiz/result/create", quizResult, {
+      await axios.post("api/quiz/result/create", quizResult, {
         withCredentials: true,
       });
       console.log("Quiz result saved successfully.");
@@ -392,7 +392,7 @@ const QuizPage = () => {
 
   return (
     <div className="bg-black">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-center text-white mb-6">
           Questions for {category.name} - {difficulty}
