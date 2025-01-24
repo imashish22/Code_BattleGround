@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile  # Points to the Dockerfile in the frontend directory
+    ports:
+      - "5173:80"  # Mapping Vite dev server port (5173) to Nginx port (80)
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - "5000:5000"
+    command: ["npm", "run", "dev"]
+
+
+  mongo:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

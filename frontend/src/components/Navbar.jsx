@@ -28,7 +28,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-orange-500">
+              <Link to="/code-quetions" className="hover:text-orange-500">
                 Problems
               </Link>
             </li>
@@ -84,7 +84,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="py-4 hover:text-orange-500">
+                <Link to="/code-quetions" className="py-4 hover:text-orange-500">
                   Problems
                 </Link>
               </li>

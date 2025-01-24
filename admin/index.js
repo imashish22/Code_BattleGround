@@ -8,7 +8,8 @@ import adminRoutes from './routes/adminRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import quizRoutes from "./routes/quizRoutes.js";
 import questionRoutes from "./routes/questionRoutes.js"; 
-
+import codecategoryRoutes from "./routes/codecategoryRoutes.js";
+import codeQuestionRoutes from "./routes/codequestionRoute.js";
 const app = express();
 const PORT = process.env.PORT || 6000;
 
@@ -27,6 +28,8 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/quizzes', quizRoutes); 
 app.use('/api/questions', questionRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/code-categories', codecategoryRoutes);
+app.use("/api/code-questions", codeQuestionRoutes);
 
 
 app.listen(PORT, () => {

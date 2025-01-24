@@ -8,12 +8,13 @@
     import quizRoutesQuestion from "./routes/quiz_routes.js";
     import quizscoreRoutes from "./routes/quizScore_route.js";
     import leaderboardRoutes from "./routes/leaderboard.js";
-    import axios from "axios";
+    import codeQuestions from './routes/codequestion.js';
+
+    dotenv.config();
 
     const app = express();
     const PORT = process.env.PORT || 5000;
 
-    dotenv.config();
     connectDB();
 
     app.use(cors({origin:"http://localhost:5173",credentials:true}));
@@ -29,7 +30,7 @@
     app.use("/api/quiz",quizRoutes)
     app.use("/api/quiz/result",quizscoreRoutes)
     app.use('/api/leaderboard', leaderboardRoutes);
-
+    app.use("/api/code-questions",codeQuestions)
 
 
 

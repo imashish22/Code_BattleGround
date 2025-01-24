@@ -36,7 +36,7 @@ const Leaderboard = () => {
         <Navbar />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text mb-6">
-          Leaderboard
+        Quiz Leaderboard
         </h1>
 
         {/* Difficulty Selector */}

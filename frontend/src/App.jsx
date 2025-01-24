@@ -18,6 +18,8 @@ import QuizPage from "./pages/QuizPage";
 import QuizResults from "./pages/QuizResults";
 import axios from "axios";
 import Leaderboard from "./pages/Leaderboard";
+import CodingQuestionsPage from "./pages/CodingQuestionsPage";
+import QuestionDetail from "./pages/QuestionDetail";
 
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;  // Use the Vite environment variable
@@ -134,6 +136,8 @@ function App() {
           {/* <Route path="/quiz-container" element={<QuizContainer/>} /> */}
           <Route path="/quizzes" element={<QuizzesPage/>} />
           <Route path="/leaderboard" element={<Leaderboard/>} />
+          <Route path="/code-quetions" element={<CodingQuestionsPage/>} />
+          <Route path="/questions/:id" element={<QuestionDetail />} />
         </Routes>
         <Toaster />
       {/* </div> */}
