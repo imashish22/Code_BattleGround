@@ -9,7 +9,8 @@
     import quizscoreRoutes from "./routes/quizScore_route.js";
     import leaderboardRoutes from "./routes/leaderboard.js";
     import codeQuestions from './routes/codequestion.js';
-
+    import judge0Routes from './routes/judge0Routes.js';
+    
     dotenv.config();
 
     const app = express();
@@ -22,7 +23,6 @@
     app.use(express.json());
     app.use(cookieParser())
 
-   
 
     // app.use('/api/quizzes', quizRoutes);
     app.use("/api/quiz-question",quizRoutesQuestion)
@@ -31,6 +31,7 @@
     app.use("/api/quiz/result",quizscoreRoutes)
     app.use('/api/leaderboard', leaderboardRoutes);
     app.use("/api/code-questions",codeQuestions)
+    app.use("/api/judge0", judge0Routes);
 
 
 

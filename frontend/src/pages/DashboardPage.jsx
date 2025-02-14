@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { formatDate } from "../utils/date"; // Ensure this function is defined
+import { formatDate } from "../utils/date";
 import { useAuthStore } from "../store/authStore";
 import Navbar from "../components/Navbar";
 import Footer from "./Footer";

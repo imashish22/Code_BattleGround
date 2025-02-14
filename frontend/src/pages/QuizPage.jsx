@@ -393,7 +393,7 @@ const QuizPage = () => {
   return (
     <div className="bg-black">
       {/* <Navbar /> */}
-      <div className="container mx-auto p-6">
+      <div className="container mx-auto  h-screen p-6">
         <h1 className="text-3xl font-bold text-center text-white mb-6">
           Questions for {category.name} - {difficulty}
         </h1>
@@ -420,7 +420,7 @@ const QuizPage = () => {
             {currentQuestion.options.map((option, index) => (
               <button
                 key={index}
-                className={`block w-full bg-gray-700 p-2 rounded mb-2 
+                className={`block w-full bg-gray-700 text-white  p-2 rounded mb-2 
                   ${userAnswers[currentQuestion._id] === option ? "bg-orange-500" : ""}`}
                 onClick={() => handleOptionClick(currentQuestion._id, option)}
               >
@@ -455,7 +455,7 @@ const QuizPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -56,8 +56,10 @@ const QuizzesPage = () => {
     <>
       <div className="bg-black">
         <Navbar />
-
-        <div className="container mx-auto p-6">
+        <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-orange-400 to-orange-500 text-transparent bg-clip-text mt-6">
+          Quizzes Questions
+        </h1>
+        <div className="container mx-auto h-screen p-6">
           <h1 className="text-3xl font-bold text-center mb-6">
             Select a Quiz Category
           </h1>
@@ -66,31 +68,70 @@ const QuizzesPage = () => {
             <LoadingSpinner />
           ) : (
             <>
+              
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-center">
-                {categories.map((category) => (
-                  <div
-                    key={category._id} 
-                    onClick={() => handleCategorySelect(category)}
-                    className={`p-6 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 ${
-                      selectedCategory?.name === category.name
-                        ? "ring-4 ring-offset-2 ring-indigo-400"
-                        : ""
-                    }`}
-                    style={{
-                      height: "200px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: `linear-gradient(135deg, #F6AD55 0%, rgba(255, 165, 0, 0.8) 100%)`, // Apply orange gradient
-                    }}
-                  >
-                    {/* Category Name */}
-                    <span className="text-2xl font-semibold text-white">
-                      {category.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
+  {categories.map((category) => (
+    <div
+      key={category._id}
+      onClick={() => handleCategorySelect(category)}
+      className={`relative p-6 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 overflow-hidden ${
+        selectedCategory?.name === category.name ? "ring-4 ring-offset-2 ring-indigo-400" : ""
+      }`}
+      style={{
+        height: "200px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: `linear-gradient(135deg, #3b0764 0%, #6d28d9 50%, #9333ea 100%)`, // Purple neon gradient
+      }}
+    >
+      {/* Futuristic Grid Pattern */}
+      <div className="absolute inset-0 opacity-30 bg-grid"></div>
+
+      {/* Animated Neon Border */}
+      <div className="absolute inset-0 border-[3px] border-transparent rounded-lg animate-border-glow"></div>
+
+      {/* Category Name */}
+      <span className="text-2xl font-semibold text-white relative z-10">{category.name}</span>
+
+      {/* CSS for Futuristic Patterns */}
+      <style>
+        {`
+          /* High-Tech Grid Pattern */
+          .bg-grid {
+            background-image: 
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+          }
+
+          /* Animated Border Glow */
+          @keyframes borderGlow {
+            0% {
+              border-color: rgba(147, 51, 234, 0.8);
+              box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+            }
+            50% {
+              border-color: rgba(109, 40, 217, 0.8);
+              box-shadow: 0 0 20px rgba(109, 40, 217, 0.6);
+            }
+            100% {
+              border-color: rgba(147, 51, 234, 0.8);
+              box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+            }
+          }
+          
+          .animate-border-glow {
+            animation: borderGlow 3s infinite alternate;
+          }
+        `}
+      </style>
+    </div>
+  ))}
+</div>
+
+
+
 
               {selectedCategory && (
                 <>

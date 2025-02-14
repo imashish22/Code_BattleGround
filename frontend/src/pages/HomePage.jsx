@@ -17,9 +17,9 @@ const HomePage = () => {
   };
   return (
     <>
-    <div className="bg-neutral-900">
+    <div className="bg-black">
     <Navbar />
-    <div className="max-w-7xl  bg-neutral-900 mx-auto pt-20 px-6">
+    <div className="max-w-7xl bg-black    mx-auto pt-20 px-6">
     <HeroSection />
     <FeatureSection />
     <Workflow />
