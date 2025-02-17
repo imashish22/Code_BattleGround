@@ -4,11 +4,12 @@ import video2 from "../assets/video2.mp4";
 const HeroSection = () => {
   return (
     <div className="flex flex-col items-center mt-6 lg:mt-20">
-      <h1 className="text-4xl sm:text-6xl text-white lg:text-7xl text-center tracking-wide">
-       Coding BattleGround 
-        <span className="bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
+      <h1 className="text-3xl sm:text-6xl text-white lg:text-7xl text-center tracking-wide">
+       Welcome to 
+       <br />
+        <span className=" text-8xl bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
           {" "}
-          for Coders
+          Code BattleGround
         </span>
       </h1>
       <p className="mt-10 text-lg text-center text-neutral-500 max-w-4xl">

@@ -4,6 +4,6 @@ import { executeCode } from './../controllers/judge0Controller.js';
 const router = express.Router();
 
 // router.post("/run", runCode);
-router.post('/execute/:id', executeCode);
+router.post('/execute', executeCode);
 
 export default router;

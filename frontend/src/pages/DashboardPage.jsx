@@ -6,6 +6,27 @@ import Navbar from "../components/Navbar";
 import Footer from "./Footer";
 import axios from "axios";
 
+const FloatingShape = ({ color, size, top, left, delay }) => {
+  return (
+    <motion.div
+      className={`absolute ${color} ${size} rounded-full opacity-30`}
+      style={{ top, left }}
+      animate={{
+        y: [0, 20, 0], // Floating effect
+        x: [0, 10, -10, 0], // Slight side movement
+        opacity: [0.2, 0.4, 0.3]
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+        repeatType: "mirror",
+        delay
+      }}
+    />
+  );
+};
+
 const DashboardPage = () => {
     const { user, logout } = useAuthStore(); // Use destructured `user` and `logout`
     const [quizzes, setQuizzes] = useState([]);
@@ -46,8 +67,24 @@ const DashboardPage = () => {
 
     return (
         <div className="bg-neutral-900">
+             <motion.div 
+                    className="relative bg-black min-h-screen overflow-hidden"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                  >
+                    {/* Floating Asteroids */}
+                    <FloatingShape color="bg-gray-400" size="w-16 h-16" top="5%" left="10%" delay={0} />
+                    <FloatingShape color="bg-gray-400" size="w-16 h-16+" top="20%" left="10%" delay={0} />
+                    <FloatingShape color="bg-gray-400" size="w-24 h-24" top="20%" left="40%" delay={0} />
+                    <FloatingShape color="bg-gray-400" size="w-16 h-16" top="17%" left="3%" delay={0} />
+                    <FloatingShape color="bg-gray-600" size="w-24 h-24" top="30%" left="70%" delay={1} />
+                    <FloatingShape color="bg-gray-500" size="w-12 h-12" top="50%" left="10%" delay={2} />
+                    <FloatingShape color="bg-gray-700" size="w-20 h-20" top="80%" left="40%" delay={3} />
+                    <FloatingShape color="bg-gray-500" size="w-28 h-28" top="5%" left="80%" delay={1.5} />
+
             <Navbar />
-            <div className="max-w-7xl bg-neutral-900 mx-auto pt-20 px-6 flex">
+            <div className="max-w-7xl  mx-auto pt-20 px-6 flex">
                 {/* Main Content Area */}
                 <div className="w-7/10 pr-4 overflow-y-auto h-screen">
                     <motion.div
@@ -149,6 +186,7 @@ const DashboardPage = () => {
                 </div>
             </div>
             <Footer />
+        </motion.div>
         </div>
     );
 };

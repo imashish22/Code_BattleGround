@@ -21,14 +21,14 @@ const Navbar = () => {
             <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
             <span className="text-xl tracking-tight">Code Battleground</span>
           </div>
-          <ul className="hidden lg:flex ml-14 space-x-12">
+          {/* <ul className="hidden lg:flex ml-14 space-x-12">
             <li>
-              <Link to="/" className="hover:text-orange-500">
+              <Link to="/" className="hover:text-white bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/code-quetions" className="hover:text-orange-500">
+              <Link to="/code-quetions" className="hover:text-white hover:bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md">
                 Problems
               </Link>
             </li>
@@ -44,6 +44,27 @@ const Navbar = () => {
             </li>
           
            
+          </ul> */}
+          <ul className="hidden lg:flex ml-14 space-x-12">
+            {[
+              { name: "Home", path: "/" },
+              { name: "Problems", path: "/code-quetions" },
+              { name: "Quizzes", path: "/quizzes" },
+              { name: "LeaderBoard", path: "/leaderboard" },
+            ].map(({ name, path }) => (
+              <li key={path}>
+                <Link
+                  to={path}
+                  className={`py-2 px-3 rounded-md transition-all duration-300 ${
+                    location.pathname === path
+                      ? "bg-gradient-to-r from-orange-500 to-orange-800 text-white"
+                      : "hover:text-white hover:bg-orange-500/70"
+                  }`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
             {isAuthenticated ? (
