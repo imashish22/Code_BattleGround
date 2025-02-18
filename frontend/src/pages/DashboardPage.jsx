@@ -33,6 +33,8 @@ const DashboardPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showAll, setShowAll] = useState(false); // Track whether to show all quizzes or just the last 5
+    const [completedQuestions, setCompletedQuestions] = useState([]);
+    const [showAllCompleted, setShowAllCompleted] = useState(false);
 
     const handleLogout = () => {
         logout();
@@ -52,6 +54,9 @@ const DashboardPage = () => {
                 });
                 console.log("Fetched quizzes data:", response.data);
                 setQuizzes(response.data.data || []); // Update the quizzes state with the response data
+
+                const completedResponse = await axios.get(`/api/judge0/user/completed`, { withCredentials: true });
+                setCompletedQuestions(completedResponse.data.data || []);
             } catch (err) {
                 console.error("Error fetching quizzes:", err);
                 setError("Failed to load quizzes.");
@@ -64,6 +69,7 @@ const DashboardPage = () => {
     }, [user]);
 
     const displayedQuizzes = showAll ? quizzes : quizzes.slice(0, 5); // Show all or the last 5 quizzes
+    const displayedCompleted = showAllCompleted ? completedQuestions : completedQuestions.slice(0, 5);
 
     return (
         <div className="bg-neutral-900">
@@ -140,6 +146,42 @@ const DashboardPage = () => {
                             <p className="text-gray-300">You haven't attempted any quizzes yet.</p>
                         )}
                     </motion.div>
+                    <motion.div className="mt-10 p-8 bg-gray-900 bg-opacity-80 rounded-xl border border-gray-800">
+                            <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-green-600 text-transparent bg-clip-text">
+                                Completed Questions
+                            </h2>
+                            {loading ? (
+                                <p className="text-gray-300">Loading...</p>
+                            ) : completedQuestions.length > 0 ? (
+                                <div>
+                                    <table className="w-full table-auto text-gray-300">
+                                        <thead>
+                                            <tr className="bg-gray-800 text-green-400">
+                                                <th className="p-3">No</th>
+                                                <th className="p-3">Question</th>
+                                                <th className="p-3">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {displayedCompleted.map((question, index) => (
+                                                <tr key={question._id || index} className="hover:bg-gray-700">
+                                                    <td className="p-3">{index + 1}</td>
+                                                    <td className="p-3">{question.text}</td>
+                                                    <td className="p-3">{question.date ? formatDate(question.date) : "N/A"}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                    {completedQuestions.length > 5 && (
+                                        <button onClick={() => setShowAllCompleted(!showAllCompleted)} className="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg">
+                                            {showAllCompleted ? "Show Less" : "View More"}
+                                        </button>
+                                    )}
+                                </div>
+                            ) : (
+                                <p className="text-gray-300">No completed questions yet.</p>
+                            )}
+                        </motion.div>
                 </div>
 
                 {/* Sidebar Area */}
