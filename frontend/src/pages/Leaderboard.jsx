@@ -1,37 +1,35 @@
-    
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 
-const FloatingShape = ({ color, size, top, left, delay }) => {
-  return (
-    <motion.div
-      className={`absolute ${color} ${size} rounded-full opacity-30`}
-      style={{ top, left }}
-      animate={{
-        y: [0, 20, 0], // Floating effect
-        x: [0, 10, -10, 0], // Slight side movement
-        opacity: [0.2, 0.4, 0.3]
-      }}
-      transition={{
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-        repeatType: "mirror",
-        delay
-      }}
-    />
-  );
-};
 
 const Leaderboard = () => {
   const [difficulty, setDifficulty] = useState("easy"); // Default difficulty level
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const FloatingShape = ({ color, size, top, left, delay }) => {
+    return (
+      <motion.div
+        className={`absolute ${color} ${size} rounded-full opacity-30`}
+        style={{ top, left }}
+        animate={{
+          y: [0, 20, 0], // Floating effect
+          x: [0, 10, -10, 0], // Slight side movement
+          opacity: [0.2, 0.4, 0.3]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          repeatType: "mirror",
+          delay
+        }}
+      />
+    );
+  };
 
   // Fetch leaderboard data from the backend
   const fetchLeaderboard = async () => {
@@ -55,26 +53,26 @@ const Leaderboard = () => {
 
   return (
     <div className="bg-gray-950 min-h-screen text-gray-100">
-        <motion.div 
-        className="relative bg-black min-h-screen overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
-      >
-        {/* Floating Asteroids */}
-        <FloatingShape color="bg-gray-400" size="w-16 h-16" top="5%" left="10%" delay={0} />
-        <FloatingShape color="bg-gray-400" size="w-16 h-16+" top="20%" left="10%" delay={0} />
-        <FloatingShape color="bg-gray-400" size="w-24 h-24" top="20%" left="40%" delay={0} />
-        <FloatingShape color="bg-gray-400" size="w-16 h-16" top="17%" left="3%" delay={0} />
-        <FloatingShape color="bg-gray-600" size="w-24 h-24" top="30%" left="70%" delay={1} />
-        <FloatingShape color="bg-gray-500" size="w-12 h-12" top="50%" left="10%" delay={2} />
-        <FloatingShape color="bg-gray-700" size="w-20 h-20" top="80%" left="40%" delay={3} />
-        <FloatingShape color="bg-gray-500" size="w-28 h-28" top="5%" left="80%" delay={1.5} />
+       <motion.div 
+              className="relative bg-black min-h-screen overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            >
+              {/* Floating Asteroids */}
+              <FloatingShape color="bg-gray-400" size="w-16 h-16" top="5%" left="10%" delay={0} />
+              <FloatingShape color="bg-gray-400" size="w-16 h-16" top="10%" left="30%" delay={0} />
+              <FloatingShape color="bg-gray-400" size="w-24 h-24" top="5%" left="40%" delay={0} />
+              <FloatingShape color="bg-gray-400" size="w-16 h-16" top="17%" left="3%" delay={0} />
+              <FloatingShape color="bg-gray-600" size="w-24 h-24" top="30%" left="70%" delay={1} />
+              <FloatingShape color="bg-gray-500" size="w-12 h-12" top="50%" left="10%" delay={2} />
+              <FloatingShape color="bg-gray-700" size="w-20 h-20" top="80%" left="40%" delay={3} />
+              <FloatingShape color="bg-gray-500" size="w-28 h-28" top="5%" left="80%" delay={1.5} />
+      
         <Navbar />
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-orange-400 to-orange-500 text-transparent bg-clip-text mt-4 mb-5">
-       
-        Quiz Leaderboard
+        <h1 className="text-3xl font-extrabold text-center bg-gradient-to-r from-orange-400 to-orange-500 text-transparent bg-clip-text mb-6">
+          Leaderboard
         </h1>
 
         {/* Difficulty Selector */}
@@ -116,9 +114,9 @@ const Leaderboard = () => {
             <table className="min-w-full table-auto text-sm bg-gray-800 shadow-md rounded-lg">
               <thead className="bg-gradient-to-r from-green-500 to-blue-500 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-left font-semibold">Rank</th>
-                  <th className="px-6 py-4 text-left font-semibold">Username</th>
-                  <th className="px-6 py-4 text-left font-semibold">Score</th>
+                  <th className="px-6 py-4 text-xl text-center text-black font-semibold uppercase">Rank</th>
+                  <th className="px-6 py-4 text-xl  text-center font-bold text-black uppercase">Username</th>
+                  <th className="px-6 py-4 text-xl  text-center font-semibold text-black uppercase">Score</th>
                 </tr>
               </thead>
               <tbody>
@@ -129,9 +127,9 @@ const Leaderboard = () => {
                       index % 2 === 0 ? "bg-gray-900" : "bg-gray-700"
                     } hover:bg-gray-600`}
                   >
-                    <td className="px-6 py-4">{index + 1}</td>
-                    <td className="px-6 py-4">{user.username}</td>
-                    <td className="px-6 py-4">{user.totalScore}</td>
+                    <td className="px-6 py-4 text-center">{index + 1}</td>
+                    <td className="px-6 py-4 font-bold text-center  uppercase">{user.username}</td>
+                    <td className="px-6 py-4 text-center">{user.totalScore}</td>
                   </tr>
                 ))}
               </tbody>

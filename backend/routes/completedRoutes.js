@@ -1,9 +1,8 @@
 import express from 'express';
-import { getCompletedQuestions } from '../controllers/completedController.js';
-import { verifyToken } from '../middleware/authMiddleware.js'; // Use your middleware
+import { getCompletedQuestionsByUser } from '../controllers/completedController.js';
 
 const router = express.Router();
 
-router.get("/completed/:userId", getCompletedQuestionsByUser);
+router.get('/completed-questions/:userId', getCompletedQuestionsByUser);
 
-export default router;  
+export default router;

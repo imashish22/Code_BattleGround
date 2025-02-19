@@ -65,7 +65,7 @@ const QuestionList = ({ filters }) => {
               <td className="px-4 py-2">{question.difficulty}</td>
               <td className="px-4 py-2 text-center">
               <button
-  className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
+  className="bg-orange-500 hover:bg-blue-600 text-white py-1 px-4 rounded"
   onClick={() => navigate(`/questions/${question._id}`)}
 >
   Solve
@@ -79,7 +79,7 @@ const QuestionList = ({ filters }) => {
       {hasMore && !loading && (
         <button
           onClick={loadQuestions}
-          className="w-full px-4 py-2 mt-4 bg-blue-500 hover:bg-blue-600 rounded"
+          className="w-full px-4 py-2 mt-4 bg-orange-500 hover:bg-blue-600 rounded"
         >
           Load More
         </button>

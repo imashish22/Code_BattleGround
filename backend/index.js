@@ -10,6 +10,7 @@
     import leaderboardRoutes from "./routes/leaderboard.js";
     import codeQuestions from './routes/codequestion.js';
     import judge0Routes from './routes/judge0Routes.js';
+    import codeQuestion from './routes/completedRoutes.js';
     
     dotenv.config();
 
@@ -35,6 +36,7 @@
     app.use('/api/leaderboard', leaderboardRoutes);
     app.use("/api/code-questions",codeQuestions)
     app.use("/api/judge0", judge0Routes);
+    app.use("/api/code-questions",codeQuestion)
 
 
 

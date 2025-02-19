@@ -78,7 +78,7 @@ const QuizzesPage = () => {
     <>
       <div className="bg-black min-h-screen">
       <motion.div 
-        className="relative bg-black min-h-screen overflow-hidden"
+        className="relative bg-black min-h-screen overflow-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -194,37 +194,7 @@ const QuizzesPage = () => {
       </div>
 
       {/* CSS for Futuristic Patterns */}
-      <style>
-        {`
-          /* High-Tech Grid Pattern */
-          .bg-grid {
-            background-image: 
-              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-          }
-
-          /* Animated Border Glow */
-          @keyframes borderGlow {
-            0% {
-              border-color: rgba(147, 51, 234, 0.8);
-              box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
-            }
-            50% {
-              border-color: rgba(109, 40, 217, 0.8);
-              box-shadow: 0 0 20px rgba(109, 40, 217, 0.6);
-            }
-            100% {
-              border-color: rgba(147, 51, 234, 0.8);
-              box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
-            }
-          }
-          
-          .animate-border-glow {
-            animation: borderGlow 3s infinite alternate;
-          }
-        `}
-      </style>
+     
     </>
   );
 };
