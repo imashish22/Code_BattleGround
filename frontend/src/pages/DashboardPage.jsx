@@ -291,6 +291,9 @@ import { useAuthStore } from "../store/authStore";
 import Navbar from "../components/Navbar";
 import Footer from "./Footer";
 import axios from "axios";
+import { FaUserCircle } from "react-icons/fa";  // FontAwesome user icon
+import { MdAccountCircle } from "react-icons/md"; // Material Design user icon
+import { AiOutlineUser } from "react-icons/ai"; 
 
 const FloatingShape = ({ color, size, top, left, delay }) => {
   return (
@@ -342,7 +345,7 @@ const DashboardPage = () => {
         setQuizzes(response.data.data || []);
       } catch (err) {
         console.error("Error fetching quizzes:", err);
-        setError("Failed to load quizzes.");
+        // setError("Failed to load quizzes.");
       } finally {
         setLoading(false);
       }
@@ -366,7 +369,7 @@ const DashboardPage = () => {
         setCompletedQuestions(responses.data || []);
       } catch (err) {
         console.error("Error fetching completed questions:", err);
-        setErrorr("Failed to load data.");
+        // setErrorr("Failed to load data.");
       } finally {
         setLoadingg(false);
       }
@@ -396,20 +399,24 @@ const DashboardPage = () => {
 
         {/* Dashboard Content */}
         <div className="max-w-7xl mx-auto pt-20 px-6">
-        <motion.div
+        {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
               className="p-6 bg-gray-900 mb-4 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl shadow-2xl border border-gray-800"
             >
+               
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 to-purple-700 text-transparent bg-clip-text">
-                User Profile
+                
+            User Profile
               </h2>
               {user ? (
                 <div>
+
                   <p className="text-gray-300 text-center">Name: {user.name}</p>
                   <p className="text-gray-300 text-center">Email: {user.email}</p>
+
                   <button
                             onClick={handleLogout}
                             className="w-full px-6 py-3 mt-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
@@ -420,7 +427,34 @@ const DashboardPage = () => {
               ) : (
                 <p className="text-gray-300 text-center">Loading user data...</p>
               )}
-            </motion.div>
+            </motion.div> */}
+              <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.9 }}
+    transition={{ duration: 0.5 }}
+    className="p-6 bg-gray-900 mb-4 bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl shadow-2xl border border-gray-800"
+  >
+    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center flex items-center justify-center bg-gradient-to-r from-purple-400 to-purple-700 text-transparent bg-clip-text">
+      <MdAccountCircle size={40} className="text-purple-500 mr-2" /> User Profile
+    </h2>
+    {user ? (
+      <div>
+        <p className="text-gray-300 text-center">Name: {user.name}</p>
+        <p className="text-gray-300 text-center">Email: {user.email}</p>
+        <button
+          onClick={handleLogout}
+          className="w-full px-6 py-3 mt-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+        >
+          Logout
+        </button>
+      </div>
+    ) : (
+      <p className="text-gray-300 text-center">Loading user data...</p>
+    )}
+  </motion.div>
+
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* User Profile Section */}
            
@@ -529,7 +563,7 @@ const DashboardPage = () => {
                   )}
                 </div>
               ) : (
-                <p className="text-gray-300 text-center">No quizzes attempted yet.</p>
+                <p className="text-gray-300 text-center">No coding question successfully attempted yet.</p>
               )}
             </motion.div>
           </div>

@@ -58,7 +58,7 @@ export const createQuizResult = async (req, res) => {
 export const getUserQuizResults = async (req, res) => {
   try {
     const userId = req.params.userId;
-    console.log("Fetching quiz results for user:", userId);  // Log the userId to verify it's correct
+    // console.log("Fetching quiz results for user:", userId);  // Log the userId to verify it's correct
     const results = await QuizResult.find({ userId }).sort({ date: -1 });
 
     if (!results.length) {

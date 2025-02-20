@@ -59,7 +59,6 @@ const calculateLeaderboardByDifficulty = async (difficulty) => {
     date: { $gte: startOfDay, $lte: endOfDay },
     difficulty: difficulty
   });
-  console.log("Matched Documents:", testQuery);
 
   return await QuizResult.aggregate([
     {
@@ -109,7 +108,6 @@ export const getLeaderboardByDifficulty = async (req, res) => {
 
   try {
     const leaderboard = await calculateLeaderboardByDifficulty(difficulty);
-    console.log(leaderboard)
     res.status(200).json(leaderboard);
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
