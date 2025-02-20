@@ -58,11 +58,12 @@ const HomePage = () => {
           <HeroSection />
           <FeatureSection />
           <Workflow />
-          <Footer />
+        <Footer />
+
         </div>
 
         {/* Call-to-Action Section */}
-        <motion.div 
+        {/* <motion.div 
           className="px-8 py-4 bg-gray-900 bg-opacity-50 flex flex-col items-center space-y-2 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,7 +95,7 @@ const HomePage = () => {
               </motion.button>
             </Link>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </>
   );

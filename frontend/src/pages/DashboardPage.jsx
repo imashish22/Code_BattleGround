@@ -391,6 +391,8 @@ const DashboardPage = () => {
         <FloatingShape color="bg-gray-400" size="w-24 h-24" top="20%" left="40%" delay={0} />
         <FloatingShape color="bg-gray-600" size="w-24 h-24" top="30%" left="70%" delay={1} />
         <FloatingShape color="bg-gray-500" size="w-12 h-12" top="50%" left="10%" delay={2} />
+        <FloatingShape color="bg-gray-500" size="w-12 h-12" top="80%" left="80%" delay={2} />
+        <FloatingShape color="bg-gray-500" size="w-24 h-24" top="80%" left="40%" delay={1} />
 
         {/* Dashboard Content */}
         <div className="max-w-7xl mx-auto pt-20 px-6">

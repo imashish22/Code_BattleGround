@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
 
@@ -7,7 +8,7 @@ const HeroSection = () => {
       <h1 className="text-3xl sm:text-6xl text-white lg:text-7xl text-center tracking-wide">
        Welcome to 
        <br />
-        <span className=" text-8xl bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
+        <span className="sm:text-8xl bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text  text-6xl ">
           {" "}
           Code BattleGround
         </span>
@@ -16,18 +17,9 @@ const HeroSection = () => {
         Empower your Coding Skills and bring your logics to Solve the Problems and quizzes. Get started today and turn your Knowledge
         into immersive reality!
       </p>
-      <div className="flex justify-center my-10">
-        <a
-          href="#"
-          className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-4 mx-3 rounded-md"
-        >
-          Start for free
-        </a>
-        <a href="#" className="py-3 px-4 text-white   mx-3 rounded-md border">
-          Documentation
-        </a>
-      </div>
-      <div className="flex mt-10 justify-center">
+     
+     
+      <div className="flex mt-12 justify-center">
         <video
           autoPlay
           loop
