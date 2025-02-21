@@ -62,40 +62,7 @@ const HomePage = () => {
 
         </div>
 
-        {/* Call-to-Action Section */}
-        {/* <motion.div 
-          className="px-8 py-4 bg-gray-900 bg-opacity-50 flex flex-col items-center space-y-2 relative z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(255,255,255,0.3)" }}
-        >
-          <p className="text-sm text-gray-400">
-            Don't have an account?{" "}
-            <Link to="/dashboard" className="text-blue-400 hover:underline">
-              Dashboard
-            </Link>
-          </p>
-
-          <h1 className="text-white text-3xl font-bold">Welcome to Code BattleGround</h1>
-          <p className="text-gray-300">Your one-stop platform for coding challenges and quizzes!</p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          >
-            <Link to="/home">
-              <motion.button 
-                className="px-6 py-3 text-white bg-blue-600 rounded-lg font-semibold hover:bg-blue-400 shadow-lg"
-                whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(14, 165, 233, 0.8)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-               Let's Start 🚀
-              </motion.button>
-            </Link>
-          </motion.div>
-        </motion.div> */}
+      
       </motion.div>
     </>
   );

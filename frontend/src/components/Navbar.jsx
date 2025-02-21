@@ -129,6 +129,7 @@ const Navbar = () => {
               )}
             </ul>
             <div className="flex space-x-6">
+              
               {isAuthenticated ? (
                 <Link to="/logout" className="py-2 px-3 border rounded-md">
                   Logout

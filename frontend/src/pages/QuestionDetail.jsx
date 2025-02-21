@@ -246,7 +246,7 @@ const QuestionDetail = () => {
       };
 
       try {
-        await axios.post("api/judge0/user/completed", completionData);
+        await axios.post("/api/judge0/user/completed", completionData);
         alert("Question completion recorded!");
       } catch (error) {
         console.error("Error saving completion:", error);
@@ -363,6 +363,7 @@ const QuestionDetail = () => {
             <option value="c">C</option>
           </select>
           <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white" onClick={handleRunCode}>Run Code</button>
+          <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white" onClick={() => navigate(-1)}>submit</button>
           <button className="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded text-white" onClick={toggleDarkMode}>
             {darkMode ? "Light Mode" : "Dark Mode"}
           </button>
