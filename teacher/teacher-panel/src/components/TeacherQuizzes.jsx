@@ -84,7 +84,7 @@ const TeacherQuizzes = () => {
           return;
         }
 
-        const response = await axios.get("/api/quiz/my-quizzes", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/quiz/my-quizzes`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

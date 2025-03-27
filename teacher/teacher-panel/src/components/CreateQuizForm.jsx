@@ -210,7 +210,7 @@ const CreateQuizForm = () => {
 
     try {
       const response = await axios.post(
-        "/api/quiz/create",
+        `${import.meta.env.VITE_API_URL}/api/quiz/create`,
         formData,
         {
           headers: {

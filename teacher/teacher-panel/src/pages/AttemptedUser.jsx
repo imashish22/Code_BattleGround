@@ -142,7 +142,7 @@ const AttemptedUser = () => {
   useEffect(() => {
     const fetchAttemptedUsers = async () => {
       try {
-        const response = await axios.get(`/api/score/contest/${id}/attempted-users`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/score/contest/${id}/attempted-users`);
         setUsers(response.data);
       } catch (error) {
         toast.error("Failed to fetch attempted users");
