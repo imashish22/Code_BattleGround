@@ -2,7 +2,7 @@
 
 Code BattleGround is a **Competitive Coding Platform** built using the **MERN stack** (MongoDB, Express, React, Node.js) that provides users with the opportunity to practice competitive programming, solve problems, participate in timed contests, and enhance their coding skills. It features various quiz categories, difficulty levels, and a leaderboard system that allows users to track their progress.   
 
-<br>
+<br>    
 
 ## 🌟 Features  
 
@@ -56,7 +56,7 @@ Code BattleGround is a **Competitive Coding Platform** built using the **MERN st
 ## 🎮 __Screenshots__
 ![image](https://github.com/user-attachments/assets/4f7b2019-1fa8-4b04-8159-ee0ad8a80f9c)  
 
-![image](https://github.com/user-attachments/assets/afcc5c84-6a92-4803-a903-c4da42fddb67)  
+![image](https://github.com/user-attachments/assets/afcc5c84-6a92-4803-a903-c4da42fddb67)   
 
 ![image](https://github.com/user-attachments/assets/a97b1218-29d6-4082-bf52-431a26487ae0)  
 

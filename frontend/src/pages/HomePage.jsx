@@ -58,7 +58,6 @@ const HomePage = () => {
           <HeroSection />
           <FeatureSection />
           <Workflow />
-        <Footer />
 
         </div>
 

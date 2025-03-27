@@ -11,6 +11,7 @@
     import codeQuestions from './routes/codequestion.js';
     import judge0Routes from './routes/judge0Routes.js';
     import codeQuestion from './routes/completedRoutes.js';
+    import quizContest from './routes/quizcontestRoutes.js';
     
     dotenv.config();
 
@@ -37,6 +38,7 @@
     app.use("/api/code-questions",codeQuestions)
     app.use("/api/judge0", judge0Routes);
     app.use("/api/code-questions",codeQuestion)
+    app.use("/api/quiz-contest",quizContest)
 
 
 

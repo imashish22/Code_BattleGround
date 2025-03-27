@@ -6,12 +6,14 @@ import { useAuthStore } from "../store/authStore";
 
 const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated, user , logout } = useAuthStore();
   // Authentication state
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
+
+ 
 
   return (
     <nav className="sticky top-0 z-50 py-3 bg-black text-white backdrop-blur-lg border-b border-neutral-700/80">
@@ -51,6 +53,7 @@ const Navbar = () => {
               { name: "Problems", path: "/code-quetions" },
               { name: "Quizzes", path: "/quizzes" },
               { name: "LeaderBoard", path: "/leaderboard" },
+              { name: "Contest", path: "/contest" },
             ].map(({ name, path }) => (
               <li key={path}>
                 <Link
@@ -68,12 +71,23 @@ const Navbar = () => {
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
             {isAuthenticated ? (
-             <Link
+              <>
+              <Link
              to="/dashboard"
              className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
            >
              Dashboard
            </Link>
+
+       <button 
+       className="bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600"
+       onClick={logout}
+       >
+        logout
+       </button>
+           
+           </>
+             
 
               
             ) : (
@@ -119,6 +133,11 @@ const Navbar = () => {
                   LeaderBoard
                 </Link>
               </li>
+              <li>
+                <Link to="/contest" className="py-4 hover:text-orange-500">
+                 Contest
+                </Link>
+              </li>
               {/* Mobile Dashboard link visible only if authenticated */}
               {isAuthenticated && (
                 <li>
@@ -131,7 +150,7 @@ const Navbar = () => {
             <div className="flex space-x-6">
               
               {isAuthenticated ? (
-                <Link to="/logout" className="py-2 px-3 border rounded-md">
+                <Link to="/login" onClick={logout} className="py-2 px-3 border rounded-md">
                   Logout
                 </Link>
               ) : (

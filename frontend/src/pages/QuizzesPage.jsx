@@ -188,7 +188,6 @@ const QuizzesPage = () => {
               )}
             </>
           )}
-          <Footer />
         </div>
               </motion.div>
       </div>
