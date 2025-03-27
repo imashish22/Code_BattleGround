@@ -176,7 +176,7 @@ const QuizDetails = () => {
 
   const checkAttemptStatus = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/quiz-contest/${id}/attempt-status/${user._id}`);
+      const response = await axios.get(`/api/quiz-contest/${id}/attempt-status/${user._id}`);
       setAttempted(response.data.attempted);
     } catch (error) {
       console.error("Error checking attempt status:", error);

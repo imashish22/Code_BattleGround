@@ -6,7 +6,7 @@ const DisplayQuestions = () => {
 
     useEffect(() => {
         const fetchQuestions = async () => {
-            const response = await axios.get('http://localhost:6000/api/questions/getAll'); // Update this endpoint as needed
+            const response = await axios.get('/api/questions/getAll'); // Update this endpoint as needed
             setQuestions(response.data);
         };
         fetchQuestions();

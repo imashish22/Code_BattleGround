@@ -7,7 +7,7 @@ const CreateCategory = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:6000/api/category/add', { name });
+            const response = await axios.post('/api/category/add', { name });
             alert(response.data.message);
             setName('');
         } catch (error) {

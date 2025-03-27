@@ -17,7 +17,7 @@ const QuizContainer = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('http://localhost:5000/api/questions', {
+            const response = await axios.get('/api/questions', {
                 params: {
                     category: category,
                     difficulty: difficulty,
