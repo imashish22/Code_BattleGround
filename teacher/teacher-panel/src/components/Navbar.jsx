@@ -5,7 +5,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../../../../frontend/src/assets/logo.png";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { teacher, logout, loading } = useContext(AuthContext);
