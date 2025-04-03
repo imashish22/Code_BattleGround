@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://api.code-battleground.site',  // Proxy all requests starting with /api to the backend
+      // '/api': 'https://api.code-battleground.site',  
+      '/api':"https://code-battleground.onrender.com"
     },
   },
 })
