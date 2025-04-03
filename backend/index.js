@@ -20,7 +20,7 @@
 
     connectDB();
 
-    app.use(cors({origin:"*",credentials:true,
+    app.use(cors({origin:"http://code-battle-ground-gamma.vercel.app",credentials:true,
         allowedHeaders: "Content-Type,Authorization"
 
     }));
