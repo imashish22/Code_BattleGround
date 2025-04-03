@@ -23,9 +23,19 @@
     // app.use(cors({origin:"http://localhost:5173",credentials:true,
     //     allowedHeaders: "Content-Type,Authorization" }));
 
+    // app.use(cors({
+    //     origin: ["https://code-battle-ground-lilac.vercel.app"], // Allow frontend domain
+    //     credentials: true
+    // }));
+
     app.use(cors({
-        origin: ["https://code-battle-ground-lilac.vercel.app"], // Allow frontend domain
-        credentials: true
+        origin: [
+            "http://localhost:5173",  // Local frontend
+            "https://code-battle-ground-9tygyqqto-ashishs-projects.vercel.app" // Vercel frontend
+        ],
+        credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization"],
+        methods: ["GET", "POST", "PUT", "DELETE"]
     }));
 
     app.use(express.json());
