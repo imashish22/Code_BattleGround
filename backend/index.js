@@ -20,9 +20,12 @@
 
     connectDB();
 
-    app.use(cors({origin:"http://code-battle-ground-gamma.vercel.app",credentials:true,
-        allowedHeaders: "Content-Type,Authorization"
+    // app.use(cors({origin:"http://localhost:5173",credentials:true,
+    //     allowedHeaders: "Content-Type,Authorization" }));
 
+    app.use(cors({
+        origin: ["https://code-battle-ground-lilac.vercel.app"], // Allow frontend domain
+        credentials: true
     }));
 
     app.use(express.json());
@@ -31,7 +34,7 @@
 
     // app.use('/api/quizzes', quizRoutes);
     app.use("/api/quiz-question",quizRoutesQuestion)
-    app.use("/api/auth",authRoutes)
+    app.use("/api/auth",authRoutes);
     app.use("/api/quiz",quizRoutes)
     app.use("/api/quiz/result",quizscoreRoutes)
     app.use('/api/leaderboard', leaderboardRoutes);
