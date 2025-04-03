@@ -23,7 +23,7 @@ const QuestionList = ({ filters }) => {
   }, [filters]);
 
   const fetchQuestions = async (filters, page, pageSize = 10) => {
-    const response = await axios.get(`api/code-questions/questions`, {
+    const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/code-questions/questions`, {
       params: { ...filters, page, pageSize },
     });
     return response.data;

@@ -176,7 +176,7 @@ const QuizDetails = () => {
 
   const checkAttemptStatus = async () => {
     try {
-      const response = await axios.get(`/api/quiz-contest/${id}/attempt-status/${user._id}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz-contest/${id}/attempt-status/${user._id}`);
       setAttempted(response.data.attempted);
     } catch (error) {
       console.error("Error checking attempt status:", error);
@@ -190,7 +190,7 @@ const QuizDetails = () => {
     }
 
     try {
-      await axios.post(`/api/quiz-contest/${id}/verify`, { password });
+      await axios.post(`${import.meta.env.VITE_API_URI}/api/quiz-contest/${id}/verify`, { password });
       navigate(`/contest/shuffled-questions/${id}`);
     } catch (error) {
       setError("Incorrect password");
@@ -201,7 +201,7 @@ const QuizDetails = () => {
     if (attempted) {
       navigate(-1); // If attempted, navigate back
     } else {
-      navigate(`/contest/shuffled-questions/${id}`); // Otherwise, start quiz
+      navigate(`${import.meta.env.VITE_API_URI}/contest/shuffled-questions/${id}`); // Otherwise, start quiz
     }
   };
 

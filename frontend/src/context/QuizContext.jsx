@@ -17,7 +17,7 @@ export const QuizProvider = ({ children }) => {
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
-        const response = await axios.get("/api/quiz-contest/all");
+        const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz-contest/all`);
         setQuizzes(response.data);
       } catch (error) {
         console.error("Error fetching quizzes:", error);
@@ -31,7 +31,7 @@ export const QuizProvider = ({ children }) => {
   const fetchQuizDetails = async (quizId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/quiz-contest/${quizId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz-contest/${quizId}`);
       setQuiz(response.data);
     } catch (error) {
       console.error("Error fetching quiz details:", error);
@@ -43,7 +43,7 @@ export const QuizProvider = ({ children }) => {
 
   const fetchShuffledQuestions = async (quizId) => {
     try {
-      const response = await axios.get(`/api/quiz-contest/shuffled-questions/${quizId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz-contest/shuffled-questions/${quizId}`);
       setQuestions(response.data.shuffledQuestions);
       setTimeLimit(response.data.timelimit);
       

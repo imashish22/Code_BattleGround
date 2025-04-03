@@ -16,7 +16,7 @@ export const useAuthStore = create((set) => ({
     signup: async (email, password, name) => {
         set({ isLoading: true, error: null });
         try {
-            const response = await axios.post(`/api/auth/signup`, { email, password, name });
+            const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/signup`, { email, password, name });
             set({ user: response.data.user, token: response.data.token, isAuthenticated: true, isLoading: false });
         } catch (error) {
             set({ error: error.response.data.message || "Error signing up", isLoading: false });
@@ -27,7 +27,7 @@ export const useAuthStore = create((set) => ({
     login: async (email, password) => {
         set({ isLoading: true, error: null });
         try {
-            const response = await axios.post(`/api/auth/login`, { email, password }, { withCredentials: true });
+            const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/login`, { email, password }, { withCredentials: true });
             // Token will be stored in cookies automatically
             set({
                 isAuthenticated: true,
@@ -47,7 +47,7 @@ export const useAuthStore = create((set) => ({
     logout: async () => {
         set({ isLoading: true, error: null });
         try {
-            await axios.post(`/api/auth/logout`, {}, { withCredentials: true }); // Ensure you send the cookies
+            await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/logout`, {}, { withCredentials: true }); // Ensure you send the cookies
             set({ user: null, token: null, isAuthenticated: false, error: null, isLoading: false });
         } catch (error) {
             set({ error: "Error logging out", isLoading: false });
@@ -57,7 +57,7 @@ export const useAuthStore = create((set) => ({
     verifyEmail: async (code) => {
         set({ isLoading: true, error: null });
         try {
-            const response = await axios.post(`/api/auth/verify-email`, { code });
+            const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/verify-email`, { code });
             set({ user: response.data.user, isAuthenticated: true, isLoading: false });
             return response.data;
         } catch (error) {
@@ -70,7 +70,7 @@ export const useAuthStore = create((set) => ({
     forgotPassword: async (email) => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axios.post(`/api/auth/forgot-password`, { email });
+			const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/forgot-password`, { email });
 			set({ message: response.data.message, isLoading: false });
 		} catch (error) {
 			set({
@@ -83,7 +83,7 @@ export const useAuthStore = create((set) => ({
 	resetPassword: async (token, password) => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axios.post(`/api/auth/reset-password/${token}`, { password });
+			const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/auth/reset-password/${token}`, { password });
 			set({ message: response.data.message, isLoading: false });
 		} catch (error) {
 			set({
@@ -96,7 +96,7 @@ export const useAuthStore = create((set) => ({
     checkAuth: async () => {
         set({ isCheckingAuth: true, error: null });
         try {
-            const response = await axios.get(`/api/auth/check-auth`, { withCredentials: true }); // Make sure cookies are sent
+            const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/auth/check-auth`, { withCredentials: true }); // Make sure cookies are sent
             set({ user: response.data.user, token: response.data.token, isAuthenticated: true, isCheckingAuth: false });
             console.log(response.data.token)
         } catch (error) {

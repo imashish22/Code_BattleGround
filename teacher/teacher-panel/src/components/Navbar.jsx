@@ -45,7 +45,7 @@ const Navbar = () => {
                     to="/create-quiz"
                     className="hover:text-white bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
                   >
-                    Create Quiz
+                    Create Contest
                   </Link>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                     to="/get-quiz"
                     className="hover:text-white bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
                   >
-                    Quizzes
+                    Contest
                   </Link>
                 </li>
               </ul>
@@ -65,7 +65,7 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <>
+            <>  
               <Link to="/login" className="py-2 px-3 border rounded-md">
                 Login
               </Link>

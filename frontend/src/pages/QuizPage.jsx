@@ -52,7 +52,7 @@ const QuizPage = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          `api/quiz-question/category/${category.id}/difficulty/${difficulty}`
+          `${import.meta.env.VITE_API_URI}/api/quiz-question/category/${category.id}/difficulty/${difficulty}`
         );
         setQuestions(response.data);
       } catch (error) {
@@ -91,7 +91,7 @@ const QuizPage = () => {
     };
 
     try {
-      await axios.post("api/quiz/result/create", quizResult, {
+      await axios.post(`${import.meta.env.VITE_API_URI}/api/quiz/result/create`, quizResult, {
         withCredentials: true,
       });
     } catch (error) {

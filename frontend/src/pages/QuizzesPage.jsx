@@ -42,7 +42,7 @@ const QuizzesPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("/api/quiz/getall");
+        const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz/getall`);
         setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);

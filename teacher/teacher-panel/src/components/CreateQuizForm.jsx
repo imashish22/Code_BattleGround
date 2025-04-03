@@ -220,8 +220,7 @@ const CreateQuizForm = () => {
         }
       );
 
-      toast.success("🎉 Quiz created successfully!");
-      console.log("Quiz Created:", response.data);
+      toast.success("🎉 Contest created successfully!");
 
       // Reset form after successful submission
       setQuiz({
@@ -235,7 +234,7 @@ const CreateQuizForm = () => {
 
     } catch (error) {
       console.error("Error creating quiz:", error.response?.data || error);
-      toast.error(error.response?.data?.error || "❌ Failed to create quiz");
+      toast.error(error.response?.data?.error || "❌ Failed to create Contest");
     }
   };
 

@@ -8,7 +8,7 @@ const Filters = ({ onFilterChange }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
 
    const fetchCategories = async () => {
-    const response = await axios.get(`api/code-questions/categories`);
+    const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/code-questions/categories`);
     return response.data;
   };
 

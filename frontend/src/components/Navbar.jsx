@@ -23,30 +23,7 @@ const Navbar = () => {
             <img className="h-10 w-10 mr-2" src={logo} alt="Logo" />
             <span className="text-xl tracking-tight">Code Battleground</span>
           </div>
-          {/* <ul className="hidden lg:flex ml-14 space-x-12">
-            <li>
-              <Link to="/" className="hover:text-white bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/code-quetions" className="hover:text-white hover:bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md">
-                Problems
-              </Link>
-            </li>
-            <li>
-              <Link to="/quizzes" className="hover:text-orange-500">
-                Quizzes
-              </Link>
-            </li>
-            <li>
-              <Link to="/leaderboard" className="hover:text-orange-500">
-                LeaderBoard
-              </Link>
-            </li>
-          
-           
-          </ul> */}
+         
           <ul className="hidden lg:flex ml-14 space-x-12">
             {[
               { name: "Home", path: "/" },

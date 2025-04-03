@@ -17,7 +17,7 @@ const QuizContainer = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('/api/questions', {
+            const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/questions`, {
                 params: {
                     category: category,
                     difficulty: difficulty,

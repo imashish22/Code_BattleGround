@@ -117,7 +117,7 @@ const [popupMessage, setPopupMessage] = useState("");
   };
 
   try {
-    const response = await axios.post(`/api/quiz-contest/${quizId}/submit`, attemptData);
+    const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/quiz-contest/${quizId}/submit`, attemptData);
     
     if (response.status === 200) {
       setCalculatedScore(score);

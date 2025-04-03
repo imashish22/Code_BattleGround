@@ -339,7 +339,7 @@ const DashboardPage = () => {
       }
 
       try {
-        const response = await axios.get(`/api/quiz/result/${user._id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz/result/${user._id}`, {
           withCredentials: true,
         });
         setQuizzes(response.data.data || []);
@@ -363,7 +363,7 @@ const DashboardPage = () => {
       }
       try {
         const responses = await axios.get(
-          `/api/code-questions/completed-questions/${user._id}`,
+          `${import.meta.env.VITE_API_URI}/api/code-questions/completed-questions/${user._id}`,
           { withCredentials: true }
         );
         setCompletedQuestions(responses.data || []);

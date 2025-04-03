@@ -37,7 +37,7 @@ const Leaderboard = () => {
     setError(null);
 
     try {
-      const response = await axios.get(`/api/leaderboard/${difficulty}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/leaderboard/${difficulty}`);
       setLeaderboard(response.data);
     } catch (err) {
       setError("Failed to fetch leaderboard. Please try again.");

@@ -246,7 +246,7 @@ const QuestionDetail = () => {
       };
 
       try {
-        await axios.post("/api/judge0/user/completed", completionData);
+        await axios.post(`${import.meta.env.VITE_API_URI}/api/judge0/user/completed`, completionData);
         alert("Question completion recorded!");
       } catch (error) {
         console.error("Error saving completion:", error);
@@ -263,7 +263,7 @@ const QuestionDetail = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`/api/code-questions/${questionId}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/code-questions/${questionId}`);
         setQuestion(response.data);
       } catch (error) {
         console.error("Error fetching question details:", error);
@@ -282,7 +282,7 @@ const QuestionDetail = () => {
 
   const handleRunCode = async () => {
     try {
-      const response = await axios.post("/api/judge0/execute", {
+      const response = await axios.post(`${import.meta.env.VITE_API_URI}/api/judge0/execute`, {
         sourceCode: code,
         languageId: languageMap[language],
         id: questionId,
