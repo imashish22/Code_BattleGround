@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://api.code-battleground.site",
+  "proxy": "https://code-battleground.onrender.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
