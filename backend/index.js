@@ -30,7 +30,8 @@
 
     app.use(cors({
         origin: [
-           "https://code-battle-ground-lilac.vercel.app" // Vercel frontend
+        //    "https://code-battle-ground-lilac.vercel.app" 
+        "http://localhost:5173"
         ],
         credentials: true,
         allowedHeaders: ["Content-Type", "Authorization"],

@@ -18,7 +18,11 @@ export const QuizProvider = ({ children }) => {
     const fetchQuizzes = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URI}/api/quiz-contest/all`);
-        setQuizzes(response.data);
+        const currentTime = new Date();
+    const activeQuizzes = response.data.filter((quiz) => new Date(quiz.deadline) > currentTime);
+
+    setQuizzes(activeQuizzes);
+        // setQuizzes(response.data);
       } catch (error) {
         console.error("Error fetching quizzes:", error);
       }

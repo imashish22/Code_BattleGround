@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 2000;  // Set the PORT environment variable to 
 connectDB();  // Call the connectDB function to connect to the MongoDB database
 
 app.use(express.json()); // ✅ Enables JSON parsing
-app.use(cors({origin:"*"})); // ✅ Enables CORS
+app.use(cors({origin:"http://localhost:5174"})); // ✅ Enables CORS
 app.use(express.urlencoded({ extended: true })); // ✅ Parses URL-encoded data
                 
 
