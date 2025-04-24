@@ -381,7 +381,7 @@ const DashboardPage = () => {
   const displayedQuizzes = showAllQuizzes ? quizzes : quizzes.slice(0, 5);
 
   return (
-    <div className="bg-black px-6 mx-auto min-h-screen">
+    <div className="bg-black  mx-auto min-h-screen">
       <Navbar />
       <motion.div
         className="relative bg-white min-h-screen overflow-hidden"

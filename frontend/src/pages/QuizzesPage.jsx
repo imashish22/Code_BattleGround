@@ -76,9 +76,9 @@ const QuizzesPage = () => {
 
   return (
     <>
-      <div className="bg-black min-h-screen">
+      <div className="bg-white min-h-screen">
       <motion.div 
-        className="relative bg-black min-h-screen overflow-auto"
+        className="relative bg-white min-h-screen overflow-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}

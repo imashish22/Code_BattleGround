@@ -5,7 +5,7 @@ import { checklistItems } from "../constants";
 const Workflow = () => {
   return (
     <div className="my-20">
-      <h2 className="text-3xl sm:text-5xl text-white mb-3 lg:text-6xl text-center mt-6 tracking-wide">
+      <h2 className="text-3xl sm:text-5xl text-black mb-3 lg:text-6xl text-center mt-6 tracking-wide">
         Accelerate your{" "}
         <span className="bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text">
           coding workflow.
@@ -22,7 +22,7 @@ const Workflow = () => {
                 <CheckCircle2 />
               </div>
               <div>
-                <h5 className="mt-1 mb-2 text-white text-xl">{item.title}</h5>
+                <h5 className="mt-1 mb-2 text-black text-xl">{item.title}</h5>
                 <p className="text-md text-neutral-500">{item.description}</p>
               </div>
             </div>

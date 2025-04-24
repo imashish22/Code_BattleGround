@@ -33,7 +33,7 @@ const Dashboard = () => {
       <Navbar />
 
       <motion.div
-        className="relative bg-black min-h-screen overflow-hidden pt-20tai"
+        className="relative bg-slate-150 min-h-screen overflow-hidden pt-20tai"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
