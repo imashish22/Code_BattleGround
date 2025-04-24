@@ -40,7 +40,7 @@ const CodingQuestionsPage = () => {
   return (
     <div className="bg-neutral-900 h-full min-h-screen">
        <motion.div 
-        className="relative bg-black min-h-screen overflow-hidden"
+        className="relative bg-white min-h-screen overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}

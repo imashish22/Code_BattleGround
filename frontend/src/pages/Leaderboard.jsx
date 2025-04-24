@@ -54,7 +54,7 @@ const Leaderboard = () => {
   return (
     <div className="bg-gray-950 min-h-screen text-gray-100">
        <motion.div 
-              className="relative bg-black min-h-screen overflow-hidden"
+              className="relative bg-white min-h-screen overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeInOut" }}

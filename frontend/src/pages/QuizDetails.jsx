@@ -71,7 +71,7 @@ const QuizDetails = () => {
 
   return (
     <motion.div
-      className="relative bg-black min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative bg-white min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -93,7 +93,7 @@ const QuizDetails = () => {
         <button className="flex items-center gap-2 px-4 py-2 bg-orange-600 rounded-lg" onClick={() => navigate(-1)}>
           <ArrowLeft size={20} /> Back
         </button>
-        <h1 className="text-4xl font-extrabold mb-6 text-purple-300">{quiz.title}</h1>
+        <h1 className="text-4xl font-extrabold mb-6 text-purple-800">{quiz.title}</h1>
         <p className="text-lg text-gray-200 mb-6">{quiz.description}</p>
 
         <div className="grid grid-cols-2 gap-6 text-lg font-semibold mb-8">

@@ -168,7 +168,7 @@ const AttemptedUser = () => {
     <>
       <Navbar />
       <motion.div
-        className="relative bg-black min-h-screen overflow-hidden pt-20 px-4 sm:px-6 lg:px-8"
+        className="relative bg-white min-h-screen overflow-hidden pt-20 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
