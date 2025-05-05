@@ -1,31 +1,4 @@
-// import { useState, useContext } from "react";
-// import AuthContext from "../context/AuthContext";
 
-// const Login = () => {
-//   const { login } = useContext(AuthContext);
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     await login(email, password);
-//   };
-
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-//       <div className="w-96 bg-white p-6 rounded-lg shadow-md">
-//         <h2 className="text-2xl font-bold mb-4">Teacher Login</h2>
-//         <form onSubmit={handleSubmit}>
-//           <input className="w-full p-2 border rounded mb-2" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-//           <input className="w-full p-2 border rounded mb-2" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-//           <button className="w-full bg-blue-500 text-white py-2 rounded" type="submit">Login</button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Login;
 
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";

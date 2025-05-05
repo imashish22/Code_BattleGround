@@ -60,42 +60,7 @@ const [popupMessage, setPopupMessage] = useState("");
     }
   }, [timer, questions]);
 
-  // const handleSubmit = async () => {
-  //   let score = 0;
-  //   const attemptAnswers = [];
-
-  //   questions.forEach((q) => {
-  //     const selectedOption = selectedAnswers[q._id] || null;
-  //     attemptAnswers.push({ question: q._id, selectedOption });
-  //     if (selectedOption === q.correctAnswer) {
-  //       score += 1;
-  //     }
-  //   });
-
-  //   const attemptData = {
-  //     studentId,
-  //     quizId,
-  //     answers: attemptAnswers,
-  //     score,
-  //     attemptedAt: new Date(),
-  //   };
-
-  //   try {
-  //     const response = await axios.post(`/api/quiz-contest/${quizId}/submit`, attemptData);
-  //     setCalculatedScore(score); // Store Score
-  //     setShowScorePopup(true); // Open Score Popup
-  //   } catch (error) {
-  //     console.error("Error submitting quiz:", error);
-  //     alert(error.response?.data?.error || "Submission failed");
-  //     if (error.response?.status === 400) {
-  //       // ✅ If the user already attempted, show a popup instead of alert
-  //       setPopupMessage(errorMessage);
-  //       setShowAttemptPopup(true);
-  //     } else {
-  //       alert(errorMessage); // Show general error message
-  //     }
-  //   }
-  // };
+  
   const handleSubmit = async () => {
   let score = 0;
   const attemptAnswers = [];

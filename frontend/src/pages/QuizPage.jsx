@@ -1,6 +1,4 @@
 
-
-
 import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, ArrowLeft } from "lucide-react"; // Icons for light/dark mode
@@ -43,6 +41,9 @@ const QuizPage = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
+  const [startTime, setStartTime] = useState(null); // Start time state
+  const [endTime, setEndTime] = useState(null); // End time state
+  const [timeTaken, setTimeTaken] = useState(null); // Time taken state
 
   useEffect(() => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -71,7 +72,20 @@ const QuizPage = () => {
     }));
   }, []);
 
+  // Start the timer when the component is mounted
+  useEffect(() => {
+    setStartTime(Date.now());
+  }, []); // This runs only once when the component mounts
+
   const handleSubmitQuiz = async () => {
+    const end = Date.now(); // End time in milliseconds
+    setEndTime(end);
+
+    // Calculate the time taken in seconds
+    const timeSpent = (end - startTime) / 1000; // Convert milliseconds to seconds
+    setTimeTaken(timeSpent);
+
+    // Proceed with your score calculation and result submission
     let newScore = 0;
     questions.forEach((question) => {
       if (userAnswers[question._id] === question.answer) {
@@ -86,6 +100,7 @@ const QuizPage = () => {
       category: category.name,
       difficulty,
       score: newScore,
+      timeTaken: timeSpent, // Pass timeTaken in seconds
       totalQuestions: questions.length,
       date: new Date().toISOString(),
     };

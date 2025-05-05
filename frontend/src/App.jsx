@@ -25,6 +25,12 @@ import { QuizProvider } from "./context/QuizContext";
 import StudentDashboard from "./pages/StudentContestDashboard";
 import QuizDetails from "./pages/QuizDetails";
 import QuizContestStart from "./pages/QuizContestStart";
+import CreateRoom from "./pages/CreateRoom";
+import SelectQuestions from "./pages/SelectQuestions";
+import Lobby from "./pages/Lobby";
+import QuestionList from "./components/QuestionList";
+import QuestionsList from "./pages/QuestionList";
+import Roomeditor from "./pages/roomeditor";
 
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;  // Use the Vite environment variable
@@ -123,6 +129,11 @@ function App() {
           <Route path="/contest" element={<StudentDashboard />} />
           <Route path="/contest/:id" element={<QuizDetails />} />
           <Route path="/contest/shuffled-questions/:id" element={<QuizContestStart />} />
+          <Route path="/room" element={<CreateRoom />} />
+          <Route path="/room/select-question/:roomId" element={<SelectQuestions />} />
+          <Route path="/lobby/:roomId" element={<Lobby />} />
+          <Route path="/lobby/:roomId/question-list" element={<QuestionsList />} />
+          <Route path="/lobby/:roomId/question-list/editor/:questionId" element={<Roomeditor />} />
         </Routes>
         </QuizProvider>
          <Footer />

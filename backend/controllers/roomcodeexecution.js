@@ -1,10 +1,7 @@
 
-
-
-
 import axios from 'axios';
 import CodeQuestion from '../models/codequestionModel.js';
-import CompletedQuestion from '../models/CompletedQuestion.js';
+import RoomRoomSubmission from '../models/roomsubmission.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,7 +9,7 @@ dotenv.config();
 const JUDGE0_BASE_URL = "https://judge029.p.rapidapi.com/submissions";
 const JUDGE0_API_KEY = process.env.RAPIDAPI_KEY; 
 
-export const executeCode = async (req, res) => {
+export const roomexecuteCode = async (req, res) => {
     try {
         const { sourceCode, languageId,id ,userId} = req.body; 
         const question = await CodeQuestion.findById(id);
@@ -26,7 +23,7 @@ export const executeCode = async (req, res) => {
 
         for (const testCase of question.testCases) {
             const formattedInput = testCase.inputs.join("\n");
-            const expectedOutput = testCase.outputs.map(String).join("\n"); // Convert numbers to strings
+            const expectedOutput = testCase.outputs.map(String).join("\n"); 
 
             const submissionResponse = await axios.post(`${JUDGE0_BASE_URL}?base64_encoded=false&wait=true`, {
                 source_code: sourceCode,

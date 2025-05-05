@@ -7,11 +7,13 @@
     import quizRoutes from "./routes/quiz_category.js";
     import quizRoutesQuestion from "./routes/quiz_routes.js";
     import quizscoreRoutes from "./routes/quizScore_route.js";
-    import leaderboardRoutes from "./routes/leaderboard.js";
+    // import leaderboardRoutes from "./routes/leaderboard.js";
+    import leaderboardRoutes from "./routes/ranking.js";
     import codeQuestions from './routes/codequestion.js';
     import judge0Routes from './routes/judge0Routes.js';
     import codeQuestion from './routes/completedRoutes.js';
     import quizContest from './routes/quizcontestRoutes.js';
+    import roomRoutes from './routes/roomroute.js';
     
     dotenv.config();
 
@@ -20,13 +22,7 @@
 
     connectDB();
 
-    // app.use(cors({origin:"http://localhost:5173",credentials:true,
-    //     allowedHeaders: "Content-Type,Authorization" }));
-
-    // app.use(cors({
-    //     origin: ["https://code-battle-ground-lilac.vercel.app"], // Allow frontend domain
-    //     credentials: true
-    // }));
+  
 
     app.use(cors({
         origin: [
@@ -47,7 +43,9 @@
     app.use("/api/auth",authRoutes);
     app.use("/api/quiz",quizRoutes)
     app.use("/api/quiz/result",quizscoreRoutes)
-    app.use('/api/leaderboard', leaderboardRoutes);
+    // app.use('/api/leaderboard', leaderboardRoutes);
+    app.use('/api/leaderboards', leaderboardRoutes);
+    app.use('/api/rooms', roomRoutes);
     app.use("/api/code-questions",codeQuestions)
     app.use("/api/judge0", judge0Routes);
     app.use("/api/code-questions",codeQuestion)

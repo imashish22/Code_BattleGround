@@ -31,6 +31,7 @@ const Navbar = () => {
               { name: "Quizzes", path: "/quizzes" },
               { name: "LeaderBoard", path: "/leaderboard" },
               { name: "Contest", path: "/contest" },
+              { name: "Room", path: "/room" },
             ].map(({ name, path }) => (
               <li key={path}>
                 <Link
